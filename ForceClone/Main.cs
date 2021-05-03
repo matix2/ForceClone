@@ -29,7 +29,7 @@ namespace ForceClone
                 }
                 else
                 {
-                    MelonLogger.Msg("Avatar ID " + avatarID + "is private");
+                    MelonLogger.Msg("Avatar ID " + avatarID + " is private");
                     Utils.PopUpAlert("Error!", "Avatar ID " + avatarID + " is private!", "Back");
                 }
             }));
