@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections;
 using MelonLoader;
 using UnityEngine;
 using VRC;
@@ -8,7 +9,20 @@ namespace ForceClone
 {
     public class Main : MelonMod
     {
-        public override void VRChat_OnUiManagerInit()
+        public override void OnApplicationStart()
+        {
+            MelonCoroutines.Start(UiManagerInitializer());
+        }
+
+        private IEnumerator UiManagerInitializer()
+        {
+            while (VRCUiManager.prop_VRCUiManager_0 == null)
+                yield return null;
+
+            OnUiManagerInit();
+        }
+
+        private void OnUiManagerInit()
         {
             Utils.CreateDefaultButton("Force Clone Public Avatar", "Forces the cloning of target's public avatar", Color.white, 0, 1,
                 QuickMenu.prop_QuickMenu_0.transform.Find("UserInteractMenu"), new Action(() =>
@@ -30,7 +44,6 @@ namespace ForceClone
                 else
                 {
                     MelonLogger.Msg("Avatar ID " + avatarID + " is private!");
-                    Utils.PopUpAlert("Error!", "Avatar ID " + avatarID + " is private!", "Back");
                 }
             }));
         }
