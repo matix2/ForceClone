@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +26,6 @@ namespace ForceClone
             buttonTransform.GetComponent<Button>().onClick.AddListener(listener);
 
             return buttonTransform;
-        }
-
-        // could not be working, didn't have the opportunity to test this
-        public static void PopUpAlert(string title, string Content, string mainBtn = "Main Button")
-        {
-            VRCUiPopupManager.field_Private_Static_VRCUiPopupManager_0.Method_Public_Void_String_String_String_Action_Action_1_VRCUiPopup_2(title, Content, mainBtn, null, null);
         }
     }
 }
