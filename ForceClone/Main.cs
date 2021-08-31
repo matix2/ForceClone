@@ -39,7 +39,6 @@ namespace ForceClone
                             field_Internal_ApiAvatar_0 = QuickMenu.prop_QuickMenu_0.field_Public_MenuController_0.activeAvatar
                         }
                     }.ChangeToSelectedAvatar();
-                    VRCUiManager.prop_VRCUiManager_0.Method_Public_Void_Boolean_1(false);
                 }
                 else
                 {
