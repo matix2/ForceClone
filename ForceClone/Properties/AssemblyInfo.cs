@@ -6,7 +6,7 @@ using MelonLoader;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("ForceClone")]
-[assembly: AssemblyDescription("Allows force cloning of a VRChat avatar if is public")]
+[assembly: AssemblyDescription("Allows force cloning of a VRChat avatar if it is public")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ForceClone")]
@@ -35,5 +35,5 @@ using MelonLoader;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: MelonInfo(typeof(ForceClone.Main), "Force Clone", "1.0.2", "matix#9090")]
+[assembly: MelonInfo(typeof(ForceClone.Main), "Force Clone", "1.0.4", "matix#9090")]
 [assembly: MelonGame("VRChat", "VRChat")]

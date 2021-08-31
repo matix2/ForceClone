@@ -25,6 +25,8 @@ namespace ForceClone
             buttonTransform.GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
             buttonTransform.GetComponent<Button>().onClick.AddListener(listener);
 
+            buttonTransform.gameObject.SetActive(true);
+
             return buttonTransform;
         }
     }
