@@ -4,6 +4,7 @@ using MelonLoader;
 using UnityEngine;
 using VRC;
 using VRC.UI;
+using VRC.Core;
 
 namespace ForceClone
 {
@@ -32,13 +33,12 @@ namespace ForceClone
                 if (QuickMenu.prop_QuickMenu_0.field_Public_MenuController_0.activeAvatar.releaseStatus != "private")
                 {
                     MelonLogger.Msg("Force Cloning avatar with ID: " + avatarID);
-                    new PageAvatar
+                    VRC.UI.PageAvatar avatarMenu = GameObject.Find("Screens").transform.Find("Avatar").GetComponent<VRC.UI.PageAvatar>();
+                    avatarMenu.field_Public_SimpleAvatarPedestal_0.field_Internal_ApiAvatar_0 = new ApiAvatar
                     {
-                        field_Public_SimpleAvatarPedestal_0 = new SimpleAvatarPedestal
-                        {
-                            field_Internal_ApiAvatar_0 = QuickMenu.prop_QuickMenu_0.field_Public_MenuController_0.activeAvatar
-                        }
-                    }.ChangeToSelectedAvatar();
+                        id = avatarID
+                    };
+                    avatarMenu.ChangeToSelectedAvatar();
                 }
                 else
                 {
