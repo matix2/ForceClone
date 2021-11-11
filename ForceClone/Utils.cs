@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,22 +6,24 @@ namespace ForceClone
 {
     class Utils
     {
-        public static Transform CreateDefaultButton(string text, Vector3 textPosition, string tooltip, Color textColor, Transform parent, Action listener)
+        public static Transform CreateDefaultButton(string text, string tooltip, Color textColor, float xPos, float yPos, Transform parent, Action listener)
         {
-            Transform quickMenu = GameObject.Find("UserInterface/Canvas_QuickMenu(Clone)").transform;
-            Transform buttonBase = quickMenu.transform.Find("Container/Window/QMParent/Menu_Dashboard/ScrollRect/Viewport/VerticalLayoutGroup/Buttons_QuickActions/Button_Respawn");
-            Transform buttonTransform = UnityEngine.Object.Instantiate(buttonBase, parent).transform;
+            Transform quickMenu = QuickMenu.prop_QuickMenu_0.transform;
+            Transform buttonTransform = UnityEngine.Object.Instantiate(quickMenu.transform.Find("CameraMenu/BackButton").gameObject).transform;
 
-            buttonTransform.GetComponentInChildren<TextMeshProUGUI>().text = text;
-            buttonTransform.GetComponentInChildren<TextMeshProUGUI>().color = textColor;
-            buttonTransform.GetComponentInChildren<TextMeshProUGUI>().rectTransform.localPosition = textPosition;
-            buttonTransform.GetComponent<VRC.UI.Elements.Tooltips.UiTooltip>().field_Public_String_0 = tooltip;
+            float buttonWidth = quickMenu.transform.Find("UserInteractMenu/ForceLogoutButton").localPosition.x - quickMenu.transform.Find("UserInteractMenu/BanButton").localPosition.x;
+            float buttonHeight = quickMenu.transform.Find("UserInteractMenu/ForceLogoutButton").localPosition.x - quickMenu.transform.Find("UserInteractMenu/BanButton").localPosition.x;
+
+            buttonTransform.localPosition = new Vector3(buttonTransform.localPosition.x + buttonWidth * xPos, buttonTransform.localPosition.y + buttonHeight * yPos, buttonTransform.localPosition.z);
+
+            buttonTransform.SetParent(parent, false);
+
+            buttonTransform.GetComponentInChildren<Text>().text = text;
+            buttonTransform.GetComponentInChildren<UiTooltip>().field_Public_String_0 = tooltip;
+            buttonTransform.GetComponentInChildren<Text>().color = textColor;
 
             buttonTransform.GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
             buttonTransform.GetComponent<Button>().onClick.AddListener(listener);
-
-            UnityEngine.Object.Destroy(buttonTransform.transform.Find("Icon").gameObject);
-            UnityEngine.Object.Destroy(buttonTransform.transform.Find("Icon_Secondary").gameObject);
 
             buttonTransform.gameObject.SetActive(true);
 

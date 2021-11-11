@@ -57,10 +57,6 @@
     <Reference Include="UnhollowerRuntimeLib">
       <HintPath>Dependencies\UnhollowerRuntimeLib.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dependencies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.AnimationModule">
       <HintPath>Dependencies\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
@@ -69,10 +65,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Dependencies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="VRC.UI.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Reference Include="VRC.UI.Elements">
-      <HintPath>Dependencies\VRC.UI.Elements.dll</HintPath>
     </Reference>
     <Reference Include="VRCCore-Editor">
       <HintPath>Dependencies\VRCCore-Editor.dll</HintPath>
