@@ -1,4 +1,5 @@
-# ForceClone [![GitHub release](https://img.shields.io/github/v/release/matix2/ForceClone.svg)](https://github.com/matix2/ForceClone/releases)
+# ForceClone
+[![GitHub release](https://img.shields.io/github/v/release/matix2/ForceClone.svg)](https://github.com/matix2/ForceClone/releases)
 A melonloader mod that allows you to clone public VRChat avatars without the target's permission.
 
 ## Installation
