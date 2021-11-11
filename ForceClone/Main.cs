@@ -2,49 +2,53 @@ using System;
 using System.Collections;
 using MelonLoader;
 using UnityEngine;
-using VRC;
 using VRC.UI;
 using VRC.Core;
+using UnityEngine.UI;
 
 namespace ForceClone
 {
     public class Main : MelonMod
     {
+        GameObject quickMenu;
         public override void OnApplicationStart()
         {
-            MelonCoroutines.Start(UiManagerInitializer());
+            MelonCoroutines.Start(QMInitializer());
         }
 
-        private IEnumerator UiManagerInitializer()
+        private IEnumerator QMInitializer()
         {
-            while (VRCUiManager.prop_VRCUiManager_0 == null)
+            while ((quickMenu = GameObject.Find("UserInterface/Canvas_QuickMenu(Clone)")) == null)
                 yield return null;
 
-            OnUiManagerInit();
+            OnQMInit();
         }
 
-        private void OnUiManagerInit()
+        private void OnQMInit()
         {
-            Utils.CreateDefaultButton("Force Clone Public Avatar", "Forces the cloning of target's public avatar", Color.white, 0, 1,
-                QuickMenu.prop_QuickMenu_0.transform.Find("UserInteractMenu"), new Action(() =>
-            {
-                string avatarID = QuickMenu.prop_QuickMenu_0.field_Public_MenuController_0.activeAvatar.id;
+            PageWorldInfo pageWorldInfo = GameObject.Find("UserInterface/MenuContent/Screens/WorldInfo").GetComponent<PageWorldInfo>();
+            MenuController menuController = pageWorldInfo.field_Public_MenuController_0;
 
-                if (QuickMenu.prop_QuickMenu_0.field_Public_MenuController_0.activeAvatar.releaseStatus != "private")
-                {
-                    MelonLogger.Msg("Force Cloning avatar with ID: " + avatarID);
-                    VRC.UI.PageAvatar avatarMenu = GameObject.Find("Screens").transform.Find("Avatar").GetComponent<VRC.UI.PageAvatar>();
-                    avatarMenu.field_Public_SimpleAvatarPedestal_0.field_Internal_ApiAvatar_0 = new ApiAvatar
+            Transform buttonParent = quickMenu.transform.Find("Container/Window/QMParent/Menu_SelectedUser_Local/ScrollRect/Viewport/VerticalLayoutGroup/Buttons_UserActions");
+            Utils.CreateDefaultButton("Force Clone Public Avatar", new Vector3(0, -25, 0), "Force the clone of this user's public avatar", Color.white, buttonParent,
+                new Action(() => {
+                    string avatarID = menuController.activeAvatarId;
+
+                    if (menuController.activeAvatar.releaseStatus != "private")
                     {
-                        id = avatarID
-                    };
-                    avatarMenu.ChangeToSelectedAvatar();
-                }
-                else
-                {
-                    MelonLogger.Msg("Avatar ID " + avatarID + " is private!");
-                }
-            }));
+                        PageAvatar avatarPage = GameObject.Find("UserInterface/MenuContent/Screens/Avatar").GetComponent<PageAvatar>();
+
+                        avatarPage.field_Public_SimpleAvatarPedestal_0.field_Internal_ApiAvatar_0 = new ApiAvatar { id = avatarID };
+
+                        avatarPage.ChangeToSelectedAvatar();
+                    }
+                    else
+                    {
+                        MelonLogger.Error("Avatar ID " + avatarID + " is private!");
+                    }
+                }));
         }
+
+
     }
 }

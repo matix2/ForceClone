@@ -35,5 +35,5 @@ using MelonLoader;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: MelonInfo(typeof(ForceClone.Main), "Force Clone", "1.0.6", "matix#9090")]
+[assembly: MelonInfo(typeof(ForceClone.Main), "Force Clone", "1.0.7", "matix#9090")]
 [assembly: MelonGame("VRChat", "VRChat")]
