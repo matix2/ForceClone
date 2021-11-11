@@ -26,8 +26,11 @@ namespace ForceClone
 
         private void OnQMInit()
         {
-            PageWorldInfo pageWorldInfo = GameObject.Find("UserInterface/MenuContent/Screens/WorldInfo").GetComponent<PageWorldInfo>();
+            Transform screens =  GameObject.Find("UserInterface/MenuContent/Screens/").transform;
+            PageWorldInfo pageWorldInfo = screens.Find("WorldInfo").GetComponent<PageWorldInfo>();
+
             MenuController menuController = pageWorldInfo.field_Public_MenuController_0;
+            PageAvatar avatarPage = screens.Find("Avatar").GetComponent<PageAvatar>();
 
             Transform buttonParent = quickMenu.transform.Find("Container/Window/QMParent/Menu_SelectedUser_Local/ScrollRect/Viewport/VerticalLayoutGroup/Buttons_UserActions");
             Utils.CreateDefaultButton("Force Clone Public Avatar", new Vector3(0, -25, 0), "Force the clone of this user's public avatar", Color.white, buttonParent,
@@ -36,8 +39,6 @@ namespace ForceClone
 
                     if (menuController.activeAvatar.releaseStatus != "private")
                     {
-                        PageAvatar avatarPage = GameObject.Find("UserInterface/MenuContent/Screens/Avatar").GetComponent<PageAvatar>();
-
                         avatarPage.field_Public_SimpleAvatarPedestal_0.field_Internal_ApiAvatar_0 = new ApiAvatar { id = avatarID };
 
                         avatarPage.ChangeToSelectedAvatar();

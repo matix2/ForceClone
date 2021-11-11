@@ -70,7 +70,9 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Dependencies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="VRC.UI.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="VRC.UI.Core">
+      <HintPath>Dependencies\VRC.UI.Core.dll</HintPath>
+    </Reference>
     <Reference Include="VRC.UI.Elements">
       <HintPath>Dependencies\VRC.UI.Elements.dll</HintPath>
     </Reference>
