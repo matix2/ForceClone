@@ -16,7 +16,7 @@ namespace ForceClone
             if (Preferences.autoHook.Value)
             {
                 allowAvatarCopyingHook.Initialize();
-                MelonLogger.Msg("Force clone has been auto hooked successfully..");
+                MelonLogger.Msg("Force clone has been auto hooked successfully...");
             }
         }
 
