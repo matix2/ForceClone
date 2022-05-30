@@ -6,7 +6,7 @@ A melonloader mod that allows you to clone public VRChat avatars without the tar
 Before install:
 Remember that **any** modification of the game can lead to a ban.
 
-To install this mod, you will need to install MelonLoader 0.5.3. Then, put the ForceClone.dll file in the Mods folder of your game directory.
+To install this mod, you will need to install MelonLoader 0.5.3. Then, put the [ForceClone.dll](https://github.com/matix2/ForceClone/releases/latest) file in the Mods folder of your game directory.
 
 ## Build Requirements
 Drop the required libraries (you can found them in `<vrchat install dir>/MelonLoader/Managed` after installing melonloader) into Dependencies folder.
