@@ -1,3 +1,6 @@
+# IMPORTANT
+As of 26/07/2022 VRChat released an update which includes a kernel anti-cheat known as Easy Anti-Cheat, this makes the usage of mods impossible. While this may stop mods that can be used maliciously such as force clone, it also stops users from using mods that are actually necessary to improve the game's qol. If you are looking for alternatives, feel free to check out [ChilloutVR](https://store.steampowered.com/app/661130/ChilloutVR/).
+
 # ForceClone
 [![GitHub release](https://img.shields.io/github/v/release/matix2/ForceClone.svg)](https://github.com/matix2/ForceClone/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 A melonloader mod that allows you to clone public VRChat avatars without the target's permission.
